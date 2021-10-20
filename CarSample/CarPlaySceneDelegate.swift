@@ -5,13 +5,12 @@
 //  Created by MAC240 on 18/10/21.
 
 import UIKit
-// CarPlay App Lifecycle
-
 import CarPlay
+
 
 class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
     var interfaceController: CPInterfaceController?
-
+    
     func templateApplicationScene(_ templateApplicationScene: CPTemplateApplicationScene,
             didConnect interfaceController: CPInterfaceController) {
 
@@ -24,6 +23,20 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
         
         //adding the above tabs in section
         let sectionItemsA = CPListSection(items: [tabFav,tabRecent,tabHistory,tabSearch])
+        
+      
+        tabFav.handler = { listItem, completion in
+            let item: CPGridButton!
+            item = CPGridButton(titleVariants: ["Enabled, tap to disable."], image: .checkmark, handler: { (button) in
+                TemplateManager.shared.showGridTemplate()
+                })
+            
+            self.interfaceController?.pushTemplate(
+                CPGridTemplate(title: "Music Content", gridButtons: [item]), animated: true, completion: nil)
+            completion()
+        }
+        
+        
         let sectionItemsB = CPListSection(items: [tabFav,tabHistory])
         
         let listTemplate = CPListTemplate(title: "", sections: [sectionItemsA])
@@ -39,6 +52,7 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
         let tabB: CPListTemplate = listTemplateA
         tabB.tabSystemItem = .mostRecent
         tabB.showsTabBadge = true
+        
         
         let tabC: CPListTemplate = listTemplateB
         tabC.tabSystemItem = .history
