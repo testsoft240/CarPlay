@@ -54,3 +54,59 @@ extension CPListTemplate {
         return listTemplate
     }
 }
+
+
+extension CPMapTemplate {
+
+    static func coastalRoadsMapTemplate(compatibleWith traitCollection: UITraitCollection,
+                                        zoomInAction: @escaping () -> Void,
+                                        zoomOutAction: @escaping () -> Void) -> CPMapTemplate {
+        let mapTemplate = CPMapTemplate()
+    
+      
+        let zoomInButton = CPMapButton { _ in
+            zoomInAction()
+        }
+        zoomInButton.isHidden = false
+        zoomInButton.isEnabled = true
+        zoomInButton.image = UIImage(named: "ZoomIn", in: Bundle.main, compatibleWith: traitCollection)
+
+        let zoomOutButton = CPMapButton { _ in
+            zoomOutAction()
+        }
+        zoomOutButton.isHidden = false
+        zoomOutButton.isEnabled = true
+        zoomOutButton.image = UIImage(named: "ZoomOut", in: Bundle.main, compatibleWith: traitCollection)
+
+        mapTemplate.mapButtons = [zoomInButton, zoomOutButton]
+        mapTemplate.automaticallyHidesNavigationBar = false
+
+        return mapTemplate
+    }
+    
+    private typealias Maneuver = (instructions: String, distance: Double, imageName: String)
+
+    func coastalRoadsManeuvers(compatibleWith traitCollection: UITraitCollection) -> [CPManeuver] {
+        
+        let maneuvers = [
+            Maneuver(instructions: "Turn Right on Uranus Ave", distance: 0, imageName: "rightTurn"),
+            Maneuver(instructions: "Turn Left on Plant Meadow Blvd", distance: 1000, imageName: "leftTurn"),
+            Maneuver(instructions: "Turn Left at Jupiter Rd", distance: 3000, imageName: "leftTurn"),
+            Maneuver(instructions: "Your destination is on the right", distance: 500, imageName: "rightTurn")
+        ]
+        
+        return maneuvers.map { maneuver -> CPManeuver in
+            let cpManeuver = CPManeuver()
+            let estimates = CPTravelEstimates(distanceRemaining: Measurement(value: maneuver.distance, unit: UnitLength.feet), timeRemaining: 300)
+            cpManeuver.initialTravelEstimates = estimates
+            cpManeuver.instructionVariants = [maneuver.instructions]
+            
+            if let image = UIImage(named: maneuver.imageName, in: .main, compatibleWith: traitCollection) {
+                cpManeuver.symbolImage = image
+            }
+            
+            return cpManeuver
+        }
+    }
+
+}
