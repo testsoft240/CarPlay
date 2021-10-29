@@ -29,6 +29,8 @@ class MKMapViewController: UIViewController, CLLocationManagerDelegate, MKMapVie
         annotation.coordinate = center
         mapView.addAnnotation(annotation)
         
+        
+        
         self.determineCurrentLocation()
         mapView.delegate = self
         mapView.translatesAutoresizingMaskIntoConstraints = false

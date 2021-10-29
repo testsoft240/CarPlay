@@ -62,7 +62,7 @@ extension CPMapTemplate {
                                         zoomInAction: @escaping () -> Void,
                                         zoomOutAction: @escaping () -> Void) -> CPMapTemplate {
         let mapTemplate = CPMapTemplate()
-    
+        mapTemplate.accessibilityRespondsToUserInteraction = true
       
         let zoomInButton = CPMapButton { _ in
             zoomInAction()
