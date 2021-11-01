@@ -29,7 +29,7 @@ class TemplateManager: NSObject, CPInterfaceControllerDelegate,CPSessionConfigur
     }
 
     
-    func interfaceController(_ interfaceController: CPInterfaceController, didConnectWith window: CPWindow) {
+    func interfaceController(_ interfaceController: CPInterfaceController, didConnectWith window: CPWindow? = nil) {
 
         carplayInterefaceController = interfaceController
         carplayInterefaceController!.delegate = self
@@ -48,7 +48,7 @@ class TemplateManager: NSObject, CPInterfaceControllerDelegate,CPSessionConfigur
         mapTemplate.tabImage = UIImage(systemName: "map")
         
  
-        tabTemplates.append(baseMapTemplate)
+        tabTemplates.append(mapTemplate)
         tabTemplates.append(FilterTemplate())
         tabTemplates.append(ChargerTemplate())
         tabTemplates.append(FavouriteTemplate())

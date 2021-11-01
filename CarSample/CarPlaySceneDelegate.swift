@@ -19,4 +19,8 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
     func templateApplicationScene(_ templateApplicationScene: CPTemplateApplicationScene, didDisconnectInterfaceController interfaceController: CPInterfaceController, to window:  CPWindow) {
         TemplateManager.shared.interfaceController(interfaceController, didDisconnectWith: window)
     }
+	
+	func templateApplicationScene(_ templateApplicationScene: CPTemplateApplicationScene, didConnect interfaceController: CPInterfaceController) {
+		TemplateManager.shared.interfaceController(interfaceController)
+	}
 }
