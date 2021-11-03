@@ -119,13 +119,13 @@
 				CBAD9E9A24A3E3DD00989CA4 /* ViewController.swift */,
 				CBAD9EC924A3E3FE00989CA4 /* CarPlaySceneDelegate.swift */,
 				DFC308BE271FCD460055E4AF /* Templates.swift */,
-				DFC518992726E1F700C22553 /* Intents.intentdefinition */,
 				DFC308C3271FD4B40055E4AF /* TemplateManager.swift */,
 				DF001AFF27228F690026111D /* MKMapViewController.swift */,
 				CBAD9E9C24A3E3DD00989CA4 /* Main.storyboard */,
 				CBAD9EA124A3E3DE00989CA4 /* LaunchScreen.storyboard */,
 				CBAD9E9F24A3E3DE00989CA4 /* Assets.xcassets */,
 				CBAD9EA424A3E3DE00989CA4 /* Info.plist */,
+				DFC518992726E1F700C22553 /* Intents.intentdefinition */,
 				DFE05668271EC0310035CCDD /* CarSample.entitlements */,
 			);
 			path = CarSample;

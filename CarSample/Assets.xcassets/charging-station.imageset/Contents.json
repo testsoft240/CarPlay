@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Map.png",
+      "filename" : "charging-station.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -11,14 +11,6 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
-    },
-    {
-      "idiom" : "car",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "car",
       "scale" : "3x"
     }
   ],
