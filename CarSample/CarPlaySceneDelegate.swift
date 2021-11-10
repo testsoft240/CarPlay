@@ -21,6 +21,6 @@ class CarPlaySceneDelegate: UIResponder, CPTemplateApplicationSceneDelegate {
     }
 	
 	func templateApplicationScene(_ templateApplicationScene: CPTemplateApplicationScene, didConnect interfaceController: CPInterfaceController) {
-		TemplateManager.shared.interfaceController(interfaceController)
+		TemplateManager.shared.interfaceController(interfaceController, scene: templateApplicationScene)
 	}
 }
